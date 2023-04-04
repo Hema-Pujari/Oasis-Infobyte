@@ -1,0 +1,147 @@
+<html>
+    <title>calculator</title>
+    <style>
+        .mainDiv{
+    
+    background:#f4763f;
+    height:410px;
+    box-shadow:2px 2px 2px rgb(90, 44, 22);
+    padding:14px;
+    width:300px;
+    margin:0 auto;
+    border-bottom:5px solid #deed58;
+    border-radius:4px;	
+   position:relative;	 
+}
+.screenDiv,.numberDiv{
+     padding:0;
+     margin:0;
+}
+.scrn{
+   
+ margin-left:8px;
+   border-radius:4px;
+ 
+   list-style:none;
+   color:rgb(253, 10, 10);
+   height:46px;
+   width:59px;
+   font-family: 'Times New Roman', Times, serif;
+   margin-bottom:10px;
+ width:183px;
+ border-top:3px solid #828A9B;
+   text-align:center;
+   font-weight:bold;
+   background:#e1ec4b;
+  border-top:3px solid #bcb305;
+ overflow:hidden;
+}
+.clr{
+   width:60px;
+   background:#ec0e21;
+   padding:10px 17px;
+   position:absolute;
+   border-radius:3px;
+   left:215px;
+   top:18px;
+   color:white;
+   cursor:pointer;
+   text-align:center;
+}
+.scrn{
+ 
+   margin: 0;
+ 
+}
+.numberDiv li{
+    list-style:none;
+    float:left;
+    width:52px;
+   background:rgb(227, 227, 227);
+   margin:9px 5px;
+   padding:10px;
+   border-bottom:4px solid #8791a9;
+   border-radius:5px;
+   color:#757474;
+   text-align:center;
+   transition:.2s;
+   cursor:pointer;
+}
+
+.numberDiv li:hover{
+   background: #d7eb40;
+   border-bottom: 4px solid #d6d860;
+   color: rgb(233, 230, 230);
+}
+
+#eqls{
+   background:#dd0611;
+   color:white;
+}
+#eqls:hover{
+   background: #763b3f;
+   border-bottom: 4px solid #4e292c;
+   color: rgb(235, 231, 231);
+}
+    </style>
+    <body>
+        <div class="mainDiv">
+    <div class="scrn" id="scrn"><p></p></div>
+    <div class="clr" id="clr">C</div>
+       <ul class="numberDiv">
+                 <li>1</li>
+                 <li>2</li>
+                 <li>3</li>
+                 <li>4</li>
+                 <li>5</li>
+                 <li>6</li>
+                 <li>7</li>
+                 <li>8</li>
+                 <li>9</li>
+                 <li>+</li>
+                 <li>0</li>
+                 <li>-</li>
+                 <li>*</li>
+                 <li>÷</li>
+                 <li>.</li>
+                 <li id="eqls">=</li>
+       </ul>
+</div>
+<script>
+window.onload = function (){
+	var elements = document.getElementsByTagName("li");
+	var scrn = document.querySelectorAll('#scrn p')[0];
+	var clr =   document.getElementsByClassName('clr')[0];
+	
+	for(var i=0;i<elements.length;i+=1){
+		  if(elements[i].innerHTML === '='){
+			    elements[i].addEventListener("click", calculate(i));
+		  }else{
+			   elements[i].addEventListener("click", addtocurrentvalue(i));
+		  }
+	}
+
+	function addtocurrentvalue (i){
+		return function(){
+			if (elements[i].innerHTML === "÷") {
+               scrn.innerHTML  +=  "/ " ;
+      }else if(elements[i].innerHTML === "x"){
+			      scrn.innerHTML += "*";
+		   } else{
+			   scrn.innerHTML  += elements[i].innerHTML;
+		   }
+	  };
+   }
+   clr.onclick = function () {
+    scrn.innerHTML = '';
+  }; 
+
+ function calculate(i) {
+    return function () {
+        scrn.innerHTML = eval(scrn.innerHTML);
+    };
+  }
+};
+</script>
+</body>
+</html>
