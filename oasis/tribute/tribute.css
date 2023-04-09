@@ -1,0 +1,38 @@
+body{
+	color:rgb(18, 12, 12);
+	
+
+}
+h1 {color: #364978;
+
+
+}
+h2{color: voilet ;
+}
+h3{color: #960d00 ;
+}
+.img{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50% ;
+	height: 55%;
+	border: 3px solid yellow ;
+}
+small{ color:rgb(254, 6, 6) 
+}
+strong{ color: rgb(15, 3, 3)
+ }
+
+ body{ background-color: #d9e466
+}
+ .thumbnail{background-color: 5656;}
+ P { text-align:JUSTIFY; }
+h1{text-align: center}
+h2{text-align: center}
+h3{text-align: center}
+p{text-align: center}
+strong{width: 50%;}
+div{
+	hover: rgb(254, 254, 86);
+}
